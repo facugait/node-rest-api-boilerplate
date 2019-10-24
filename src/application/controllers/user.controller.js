@@ -11,7 +11,7 @@ const getUrl = (url, method) => fetch(url, method)
     console.error(`Error ${err}`);
   });
 
-class HelloWorldCtrl {
+class userController {
   /**
    * Get list of users.
    * @async
@@ -22,10 +22,12 @@ class HelloWorldCtrl {
   async getUsers(req, res) {
     try {
       const data = await getUrl(URL, options);
+      console.log(data);
+      
       return res.status(200).json({
         success: true,
         msg: 'User found!',
-        user: data,
+        user: data.users,
       });
     } catch (error) {
       res.status(404).json({
@@ -57,4 +59,4 @@ class HelloWorldCtrl {
   }
 }
 
-module.exports = HelloWorldCtrl;
+module.exports = userController;
