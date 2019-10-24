@@ -7,7 +7,7 @@ class Middlewares {
     });
   }
 
-  serverError(error, req, res, next) {
+  serverError(error, req, res) {
     res.status(500).json({
       status: 500,
       message: error.message,

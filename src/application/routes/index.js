@@ -1,10 +1,14 @@
 const express = require('express');
+
 const router = new express.Router();
 
-const HelloWorldCtrl = new (require('../controllers/helloWorld.controller'))();
+const HelloWorldCtrl = new (require('../controllers/user.controller'))();
 
 router
-	.route('/hello-world')
-	.get(HelloWorldCtrl.sayHi);
+  .route('/users')
+  .get(HelloWorldCtrl.getUsers);
+router
+  .route('/active-users')
+  .get(HelloWorldCtrl.getActiveUsers);
 
 module.exports = router;
