@@ -43,11 +43,17 @@ class userController {
       const activeUsers = data.users.filter((e) => e.is_active === true);
 
       const activeUsersByLastname = activeUsers.sort((a, b) => a.lastname.localeCompare(b.lastname));
-
+      
+      const orderedActivesWithAge = activeUsersByLastname.map((user) =>{
+        const currentDate = moment();
+        const bdayDate = moment(user.birthday);       
+        user.age = currentDate.diff(bdayDate, 'years');
+        return user;
+      });
       return res.status(200).json({
         success: true,
         msg: 'User found!',
-        user: activeUsersByLastname,
+        user: orderedActivesWithAge,
       });
     } catch (error) {
       res.status(404).json({
