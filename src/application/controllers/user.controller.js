@@ -22,7 +22,6 @@ class userController {
   async getUsers(req, res) {
     try {
       const data = await getUrl(URL, options);
-      console.log(data);
       
       return res.status(200).json({
         success: true,
