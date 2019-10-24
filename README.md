@@ -1,7 +1,7 @@
 # node-rest-api
 
 ## Architectural Style
-
+```
 src
   └───application
   │   ├───controllers
@@ -9,6 +9,7 @@ src
   │   └───routes
   └───index.js
   └───test
+```
 
   `src/index.js`: File with all the settings and configurations to run our API<br/>
   `src/application/controllers`: Contains the code for our controllers<br/>
